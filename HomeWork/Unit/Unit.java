@@ -1,29 +1,37 @@
-package HomeWork;
+package HomeWork.Unit;
 
-public abstract class Unit {
+
+
+import HomeWork.Interfaces.IBaseUnit;
+
+public abstract class Unit implements IBaseUnit {
 
     protected String name;
     protected int hp;
     protected int armor;
-    protected int movePoints;
+    protected Coordinats coords;
 
-    public Unit(String name, int hp, int armor, int movePoints) {
+    public Unit(String name, int x, int y, int hp, int armor) {
         this.name = name;
+        coords = new Coordinats(x, y);
+
         if(setHp(hp)){
             this.hp = hp;
-        } else {
+        } 
+        else {
             this.hp = 1;
         }
+
         if(setArmor(armor)){
             this.armor = armor;
-        } else {
+        } 
+        else {
             this.armor = 0;
         }
-        if(setMovePoints(movePoints)){
-            this.movePoints = movePoints;
-        } else {
-            this.movePoints = 1;
-        }
+    }
+
+    public Coordinats getCoords(){
+        return coords;
     }
 
     public int getHp() {
@@ -52,21 +60,7 @@ public abstract class Unit {
         return true;
     }
 
-    public int getMovePoints() {
-        return movePoints;
-    }
-
-    public boolean setMovePoints(int movePoints) {
-        if (movePoints < 0) {
-            return false;
-        } else {
-            this.movePoints += movePoints;
-        }
-        return true;
-    }
-
     protected boolean makeMove() {
         return true;
     }
-
 }

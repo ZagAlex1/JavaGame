@@ -1,1 +1,7 @@
-# Object-Oriented-Programming-Java
+# Object Oriented Programming (OOP) Java
+
+## Информация о студенте:
+
+- **Имя:** Артемий
+- **Фамилия:** Ануров
+- **Номер группы:** 4544

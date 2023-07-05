@@ -1,14 +1,16 @@
-package HomeWork;
+package HomeWork.Unit;
 
 public class Countryman extends Unit{
+
     private int numberOfReplenishments;
     private int bringArrows;
 
+    public Countryman(String name, int x, int y, int hp, int armor, int numberOfReplenishments, int bringArrows) {
+        super(name, x, y,  hp, armor);
 
-    public Countryman(String name, int hp, int armor, int movePoints, int numberOfReplenishments, int bringArrows) {
-        super(name, hp, armor, movePoints);
         this.numberOfReplenishments = numberOfReplenishments;
         this.bringArrows = bringArrows;
+
     }
 
     public int getNumberOfReplenishments() {
@@ -20,13 +22,23 @@ public class Countryman extends Unit{
     }
 
     @Override
-    public String toString() {
+    public void step() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'step'");
+    }
+
+    @Override
+    public String getInfo() {
         return "Countryman{" +
                 "numberOfReplenishments=" + numberOfReplenishments +
                 ", bringArrows=" + bringArrows +
                 ", hp=" + hp +
                 ", armor=" + armor +
-                ", movePoints=" + movePoints +
                 '}';
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

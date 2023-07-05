@@ -1,21 +1,24 @@
-package HomeWork;
+package HomeWork.Shooter;
 
-public abstract class Shooter extends Unit {
+import HomeWork.Interfaces.IRangeAttack;
+import HomeWork.Unit.Unit;
+
+public abstract class Shooter extends Unit implements IRangeAttack{
 
     protected int numberOfArrows;
-    protected String weapon;
     protected int damage;
 
-    public Shooter(String name, int hp, int armor, int movePoints, int numberOfArrows, String weapon, int damage) {
-        super(name, hp, armor, movePoints);
+    public Shooter(String name, int x, int y, int hp, int armor, int numberOfArrows, int damage) {
+        super(name, x, y, hp, armor);
+
+        this.damage = damage;
+        
         if(setNumberOfArrows(numberOfArrows)){
             this.numberOfArrows = numberOfArrows;
-        } else {
+        } 
+        else {
             this.numberOfArrows = 1;
         }
-        this.movePoints = 0;
-        this.weapon = weapon;
-        this.damage = damage;
     }
 
     public int getNumberOfArrows() {
@@ -29,9 +32,5 @@ public abstract class Shooter extends Unit {
             this.numberOfArrows += numberOfArrows;
         }
         return true;
-    }
-
-    public void shoot() {
-
     }
 }
