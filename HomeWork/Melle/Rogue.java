@@ -5,7 +5,7 @@ import HomeWork.Unit.Unit;
 public class Rogue extends Melee{
 
     public Rogue(String name, int x, int y) {
-        super(name, x, y, 45, 3, 35);
+        super(name, x, y, 65, 4, 15);
     }
 
     @Override
@@ -21,7 +21,8 @@ public class Rogue extends Melee{
 
     @Override
     public String getInfo() {
-        throw new UnsupportedOperationException("Unimplemented method 'getInfo'");
+        return String.format("Rogue | Имя: %s | HP: %d | Броня: %d | Позиция: x-%d , y-%d ", 
+                             name, hp, armor, coords.getX(), coords.getY());
     }
 
     @Override

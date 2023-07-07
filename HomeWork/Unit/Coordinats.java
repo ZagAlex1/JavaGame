@@ -20,26 +20,29 @@ public class Coordinats {
     }
 
     public int findNearestEnemy(ArrayList<Unit> targets){
-        double minDistance = 0;
-        int indexMinTarget = 0;
+        
 
         if(targets.size() != 0){
+            double minDistance = 0;
+            int indexMinTarget = 0;
+
             minDistance = (Math.pow(x - targets.get(0).coords.x,  2) + Math.pow(y - targets.get(0).coords.y,  2));
+
+            for (int i = 0; i < targets.size(); i++) {
+                double tmp = Math.sqrt((Math.pow(x - targets.get(i).coords.x, 2) + Math.pow(y - targets.get(i).coords.y, 2)));
+                System.out.printf("\nДистанция до %s по имени %s = %.2fм",targets.get(i).getClass().getSimpleName(),targets.get(i).getName(), tmp);
+            
+                if(tmp < minDistance){
+                    minDistance = tmp;
+                    indexMinTarget = i;
+                }
+            }
+            System.out.printf("\n\nСамый близкий %s на расстоянии %.2f ", targets.get(indexMinTarget).getName(), minDistance);
+            return indexMinTarget;
         }
         else{
-            System.out.println("Список пуст!");
+            System.out.println("Список пуст!"); 
+            return 0;
         }
-
-        for (int i = 0; i < targets.size(); i++) {
-            double tmp = Math.sqrt((Math.pow(x - targets.get(i).coords.x, 2) + Math.pow(y - targets.get(i).coords.y, 2)));
-            System.out.printf("\nДистанция до %s по имени %s = %.2fм",targets.get(i).getClass().getSimpleName(),targets.get(i).getName(), tmp);
-            if(tmp < minDistance){
-                minDistance = tmp;
-                indexMinTarget = i;
-            }
-        }
-        System.out.printf("\nСамый близкий %s на расстоянии %.2f ", targets.get(indexMinTarget).getName(), minDistance);
-
-        return indexMinTarget;
     }
 }

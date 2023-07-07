@@ -4,8 +4,8 @@ import HomeWork.Unit.Unit;
 
 public class Sniper extends Shooter{
 
-    public Sniper(String name, int x, int y, int hp, int armor, int numberOfArrows) {
-        super(name, x, y, hp, armor, numberOfArrows, 10);
+    public Sniper(String name, int x, int y) {
+        super(name, x, y, 45, 3, 15, 15);
 
     }
 
@@ -29,12 +29,8 @@ public class Sniper extends Shooter{
 
     @Override
     public String getInfo() {
-        return "Sniper{" +
-                "name='" + name + '\'' +
-                ", hp=" + hp +
-                ", armor=" + armor +
-                " Координаты: " + getCoords().getX() + " " + getCoords().getY() +
-                '}';
+        return String.format("Sniper | Имя: %s | HP: %d | Броня: %d | Кол-во стрел: %d | Позиция: x-%d , y-%d ", 
+                             name, hp, armor, numberOfArrows, coords.getX(), coords.getY());
     }
 
     @Override

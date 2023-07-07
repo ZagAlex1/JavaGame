@@ -2,8 +2,8 @@ package HomeWork.Sorcerer;
 
 public class Mage extends Sorcerer{
 
-    public Mage(String name, int x, int y, int hp, int armor, int mana, String artifact) {
-        super(name, x, y,  hp, armor, mana, artifact);
+    public Mage(String name, int x, int y, String artifact) {
+        super(name, x, y, 40, 1, 60, artifact);
 
     }
 
@@ -21,8 +21,8 @@ public class Mage extends Sorcerer{
 
     @Override
     public String getInfo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getInfo'");
+        return String.format("Mage | Имя: %s | HP: %d | Мана: %d | Броня: %d | Позиция: x-%d , y-%d ", 
+                             name, hp, mana, armor, coords.getX(), coords.getY());
     }
 
     @Override

@@ -5,11 +5,11 @@ public class Countryman extends Unit{
     private int numberOfReplenishments;
     private int bringArrows;
 
-    public Countryman(String name, int x, int y, int hp, int armor, int numberOfReplenishments, int bringArrows) {
-        super(name, x, y,  hp, armor);
+    public Countryman(String name, int x, int y) {
+        super(name, x, y, 30, 0);
 
-        this.numberOfReplenishments = numberOfReplenishments;
-        this.bringArrows = bringArrows;
+        this.numberOfReplenishments = 10;
+        this.bringArrows = 10;
 
     }
 
@@ -29,12 +29,8 @@ public class Countryman extends Unit{
 
     @Override
     public String getInfo() {
-        return "Countryman{" +
-                "numberOfReplenishments=" + numberOfReplenishments +
-                ", bringArrows=" + bringArrows +
-                ", hp=" + hp +
-                ", armor=" + armor +
-                '}';
+        return String.format("Countryman | Имя: %s | HP: %d | Броня: %d | Количество пополнений: %d | Позиция: x-%d , y-%d ", 
+                             name, hp, armor, numberOfReplenishments, coords.getX(), coords.getY());
     }
 
     @Override

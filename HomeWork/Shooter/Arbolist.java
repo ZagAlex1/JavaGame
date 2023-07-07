@@ -3,8 +3,8 @@ package HomeWork.Shooter;
 import HomeWork.Unit.Unit;
 
 public class Arbolist extends Shooter{
-    public Arbolist(String name, int x, int y, int armor, int numberOfArrows, int damage) {
-        super(name, x, y, 30, 5, 10, 30);
+    public Arbolist(String name, int x, int y) {
+        super(name, x, y, 55, 5, 12, 10);
 
     }
 
@@ -28,8 +28,8 @@ public class Arbolist extends Shooter{
 
     @Override
     public String getInfo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getInfo'");
+        return String.format("Arbolist | Имя: %s | HP: %d | Броня: %d | Кол-во стрел: %d | Позиция: x-%d , y-%d ", 
+                             name, hp, armor, numberOfArrows, coords.getX(), coords.getY());
     }
 
     @Override

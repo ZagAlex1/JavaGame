@@ -4,8 +4,8 @@ import HomeWork.Unit.Unit;
 
 public class Spearman extends Melee{
 
-    public Spearman(String name, int x, int y, int hp, int armor, int damage) {
-        super(name, x, y, hp, armor, damage);
+    public Spearman(String name, int x, int y) {
+        super(name, x, y, 90, 8, 10);
 
     }
 
@@ -22,8 +22,8 @@ public class Spearman extends Melee{
 
     @Override
     public String getInfo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getInfo'");
+        return String.format("Spearman | Имя: %s | HP: %d | Броня: %d | Позиция: x-%d , y-%d ", 
+                             name, hp, armor, coords.getX(), coords.getY());
     }
 
     @Override

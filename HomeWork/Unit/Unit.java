@@ -1,7 +1,5 @@
 package HomeWork.Unit;
 
-
-
 import HomeWork.Interfaces.IBaseUnit;
 
 public abstract class Unit implements IBaseUnit {
@@ -13,21 +11,10 @@ public abstract class Unit implements IBaseUnit {
 
     public Unit(String name, int x, int y, int hp, int armor) {
         this.name = name;
+        this.hp = hp;
+        this.armor = armor;
         coords = new Coordinats(x, y);
 
-        if(setHp(hp)){
-            this.hp = hp;
-        } 
-        else {
-            this.hp = 1;
-        }
-
-        if(setArmor(armor)){
-            this.armor = armor;
-        } 
-        else {
-            this.armor = 0;
-        }
     }
 
     public Coordinats getCoords(){
@@ -38,14 +25,13 @@ public abstract class Unit implements IBaseUnit {
         return hp;
     }
 
-    public boolean setHp(int hp) {
-        if (hp < 0) {
-            return false;
-        } else {
-            this.hp += hp;
-        }
-        return true;
+    public boolean makeDamage(int damage) {
+        hp -= damage;
+        if(hp <= 0) return false;
+        else return true;
     }
+
+    
 
     public int getArmor() {
         return armor;
