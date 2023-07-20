@@ -1,9 +1,8 @@
-package HomeWork.Sorcerer;
+package HomeWork.Unit.Sorcerer;
 
-import HomeWork.Interfaces.IHealth;
 import HomeWork.Unit.Unit;
 
-public abstract class Sorcerer extends Unit implements IHealth{
+public abstract class Sorcerer extends Unit{
 
     protected int mana;
     protected String artifact;
@@ -14,6 +13,11 @@ public abstract class Sorcerer extends Unit implements IHealth{
         this.mana = mana;
 
         this.artifact = artifact;
+    }
+
+    public int restoreHealth(int mana) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'restoreHealth'");
     }
 
 }

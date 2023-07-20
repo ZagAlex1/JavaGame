@@ -1,10 +1,8 @@
-package HomeWork.Melle;
+package HomeWork.Unit.Melle;
 
-import HomeWork.Interfaces.IMeleeAttack;
 import HomeWork.Unit.Unit;
 
-public abstract class Melee extends Unit implements IMeleeAttack{
-
+public abstract class Melee extends Unit {
     protected int damage;
 
     public Melee(String name, int x, int y, int hp, int armor, int damage) {
@@ -12,6 +10,10 @@ public abstract class Melee extends Unit implements IMeleeAttack{
 
         this.damage = damage;
 
+    }
+
+    public void attack(Unit target) {
+        throw new UnsupportedOperationException("Unimplemented method 'Attack'");
     }
 
 }
