@@ -18,10 +18,16 @@ public class SearchTargets {
         return null;
     }
 
+    //Поиск союзного дальняка
     public static Shooter findNotFullShooter(ArrayList<Unit> allUnits, Unit unit){
         for (Unit target : allUnits) {
             if(target instanceof Shooter && target.getStatus() != Status.Dead && target.team == unit.team){
-                return (Shooter)target;
+                var tmp = (Shooter)target;
+                if(!tmp.isWaitCountry){
+                    tmp.isWaitCountry = true;
+                    return tmp;
+                }
+                continue;
             }
         }
         return null;

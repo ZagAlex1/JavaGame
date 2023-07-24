@@ -2,10 +2,12 @@ package HomeWork.Mathematic;
 
 import java.util.ArrayList;
 
+import HomeWork.Main;
 import HomeWork.Unit.Status;
 import HomeWork.Unit.Unit;
 
 public class Coordinats {
+    
     private int x;
     private int y;
 
@@ -31,11 +33,10 @@ public class Coordinats {
         
         if(isNotEmptyList(targets)){
             Unit target = null;
-            int index = 0;
             double minDistance = 10;
 
             for (int i = 0; i < targets.size(); i++) {
-                if(targets.get(i).getStatus() == Status.Dead) continue; //Проверка на статут Dead
+                if(targets.get(i).getStatus() == Status.Dead) continue; //Проверка на статус Dead
                 else if(targets.get(i).team == unit.team) continue; //Проверка на союзного юнита
 
                 //Рассчет расстояния
@@ -44,11 +45,8 @@ public class Coordinats {
                 if(tmp < minDistance){
                     minDistance = tmp;
                     target = targets.get(i);
-                    index = i;
                 }
             }
-            System.out.printf("Самый близкий %s на расстоянии %.2f \n", 
-                              targets.get(index).getClass().getSimpleName(), minDistance);
             return target;
         }
         else{
@@ -62,15 +60,73 @@ public class Coordinats {
         else return false;
     }
 
-    public void newPosition(ArrayList<Unit> allUnits, Unit target){
+    public void newPosition(Unit target){
         if(x < target.getCoords().x){
+            if(isEmptyPoint(x + 1, y)){
+                x++;
+                return;
+            }
+            else if(y == 1 && isEmptyPoint(x, y + 1)){
+                y++;
+                return;
+            }
+            else if(y == 10 && isEmptyPoint(x, y - 1)){
+                 y--;
+                return;
+            }
+            else return;
+        }
+        else if (x > target.getCoords().x){
+            if(isEmptyPoint(x - 1, y)){
+                x--;
+                return;
+            }
+            else if(y == 1 && isEmptyPoint(x, y + 1)){
+                y++;
+                return;
+            }
+            else if(y == 10 && isEmptyPoint(x, y - 1)){
+                y--;
+                return;
+            }
+            else return;
             
+        }
+        else if(y < target.getCoords().y){
+            if(isEmptyPoint(x, y + 1)){
+                y++;
+                return;
+            }
+            else if(x == 1 && isEmptyPoint(x + 1, y)){
+                x++;
+                return;
+            }
+            else if(x == 10 && isEmptyPoint(x - 1, y)){
+                x--;
+                return;
+            }
+            else return;
+        }
+        else if(y > target.getCoords().y){
+            if(isEmptyPoint(x, y - 1)){
+                y--;
+                return;
+            }
+            else if(x == 1 && isEmptyPoint(x + 1, y)){
+                x++;
+                return;
+            }
+            else if(x == 10 && isEmptyPoint(x - 1, y)){
+                x--;
+            }
+            else return;
         }
 
     }
 
-    private boolean isEmptyPoint(ArrayList<Unit> units, int pointX, int pointY){
-        for (var unit : units) {
+    private boolean isEmptyPoint(int pointX, int pointY){
+        for (var unit : Main.allTeam) {
+            if(unit.getStatus() == Status.Dead) continue;
             if(pointX == unit.getCoords().x && pointY == unit.getCoords().y){
                 return false;
             }

@@ -1,8 +1,5 @@
 package HomeWork.Unit;
 
-import java.util.ArrayList;
-
-import HomeWork.Main;
 import HomeWork.Mathematic.Coordinats;
 import HomeWork.Unit.Interfaces.IBaseUnit;
 
@@ -44,17 +41,12 @@ public abstract class Unit implements IBaseUnit {
     }
 
     //Сеттер армора. В данный момент нигде не используется
-    public boolean setArmor(int armor) {
-        if (armor < 0) {
-            return false;
-        } else {
-            this.armor += armor;
-        }
-        return true;
+    public void setArmor(int armor) {
+        this.armor += armor;
     }
     //Метод передвижения
-    protected void move(ArrayList<Unit> allUnits, Unit target){
-        getCoords().newPosition(allUnits, target);
+    protected void move(Unit target){
+        getCoords().newPosition(target);
         setStatus(Status.Move);
     }
 
@@ -75,6 +67,11 @@ public abstract class Unit implements IBaseUnit {
             hp = hp - (damage - armor);
         }
         else return;
+    }
+
+    //Метод на восстановление здоровья
+    public void takeHealth(int health){
+        
     }
 
     //вернуть имя

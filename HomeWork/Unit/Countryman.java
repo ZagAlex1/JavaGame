@@ -2,6 +2,7 @@ package HomeWork.Unit;
 
 import java.util.ArrayList;
 
+import HomeWork.Main;
 import HomeWork.SearchAndCreate.SearchTargets;
 import HomeWork.Unit.Shooter.Shooter;
 
@@ -9,6 +10,7 @@ public class Countryman extends Unit{
 
     private int numberOfArrows;
     public final int maxHP = 40;
+    Shooter shooter;
 
     public Countryman(String name, int x, int y) {
         super(name, x, y, 40, 0);
@@ -25,22 +27,21 @@ public class Countryman extends Unit{
     public void step(ArrayList<Unit> targets) {
         if(!isAlive() || !isNotEmpty()) return;
 
-        Shooter shooter = SearchTargets.findNotFullShooter(targets, this);
-        if(shooter != null && !shooter.isFull()){
-            
+        if(shooter == null){
+            shooter = SearchTargets.findNotFullShooter(Main.allTeam, this);
+            if(shooter != null) shooter.isWaitCountry = true;
+            else return;
+        }
+
+        if(shooter.getStatus() == Status.Empty){
             if(getCoords().findDistance(shooter) <= 1){
-                int tmp = shooter.maxNumberofArrow - shooter.getNumOfArr();
-                
-                if(numberOfArrows - tmp >= 0){
-                    shooter.restock(tmp);
-                    numberOfArrows -= tmp;
-                }
-                else{
-                    //Логика пересчета
-                }
+                //Логика пополнения
+
+                System.out.printf("Пополнил запас %s на коор: %d %d\n",shooter.getName(), shooter.getCoords().getX(), shooter.getCoords().getY());
+                setStatus(Status.Stand);
             }
             else{
-                move(targets, shooter);
+                move(shooter);
             }
 
             setStatus(Status.Busy);
@@ -60,5 +61,10 @@ public class Countryman extends Unit{
     public String getInfo() {
         return String.format("Countryman|HP:%d/%d|Броня:%d|Кол-во припасов:%d|x:%d y:%d|%s", 
                             hp, maxHP, armor, numberOfArrows, coords.getX(), coords.getY(), getStatus().toString());
-    } 
+    }
+    
+    @Override
+    public String toString() {
+        return "C";
+    }
 }

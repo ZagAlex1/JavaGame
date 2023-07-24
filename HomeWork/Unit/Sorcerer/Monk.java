@@ -21,4 +21,9 @@ public class Monk extends Sorcerer{
         return String.format("Monk|HP:%d/%d|Мана:%d|Броня:%d|x:%d y:%d|%s", 
                             hp, maxHp, mana, armor, coords.getX(), coords.getY(), getStatus());
     }
+    
+    @Override
+    public String toString() {
+        return "M";
+    }
 }

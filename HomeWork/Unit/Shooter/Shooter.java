@@ -7,6 +7,7 @@ public abstract class Shooter extends Unit{
     public final int maxNumberofArrow = 10;
     protected int numberOfArrows;
     protected int damage;
+    public boolean isWaitCountry = false;
 
     public Shooter(String name, int x, int y, int hp, int armor, int numberOfArrows, int damage) {
         super(name, x, y, hp, armor);
@@ -19,6 +20,9 @@ public abstract class Shooter extends Unit{
         if(target.getStatus() != Status.Dead){
             target.takeDamage(damage);
             numberOfArrows --;
+
+            System.out.printf("Нанес урон по %s\n", target.getName());
+
             setStatus(Status.Shoot);
         }
         else{
@@ -42,7 +46,7 @@ public abstract class Shooter extends Unit{
     }
 
     //Проверка на пустой запас
-    protected boolean isEmptyStock(){
+    public boolean isEmptyStock(){
         if(numberOfArrows == 0){
             setStatus(Status.Empty);
             return true;

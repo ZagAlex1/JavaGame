@@ -15,7 +15,7 @@ public class Main {
         allTeam.addAll(goodTeam);
         allTeam.addAll(evilTeam);
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 30; i++) {
             View.view();
             for (int j = 0; j < allTeam.size(); j++) {
             allTeam.get(j).step(allTeam);

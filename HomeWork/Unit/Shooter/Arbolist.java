@@ -21,4 +21,8 @@ public class Arbolist extends Shooter{
                             hp, maxHp, armor, numberOfArrows, coords.getX(), coords.getY(), getStatus());
     }
 
+    @Override
+    public String toString() {
+        return "A";
+    }
 }

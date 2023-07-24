@@ -24,7 +24,6 @@ public class Sniper extends Shooter{
             Countryman peaces = SearchTargets.findFrendlyCM(Main.allTeam, this);
             
             if(peaces != null){
-                System.out.println("Бомж найден");
                 peaces.step(targets);
             }
             else return;
@@ -39,13 +38,17 @@ public class Sniper extends Shooter{
         Unit target = getCoords().findNearestEnemy(targets, this);
             if(target != null){
                 shoot(target);
-                System.out.printf("Я - %s, нанес урон по %s \n\n", name, target.getName());
             } 
     }
 
     @Override
     public String getInfo() {
-        return String.format("Sniper|HP:%d/%d|Броня:%d|Боезапас:%d|x:%d y:%d|%s", 
-                            hp, maxHp, armor, numberOfArrows, coords.getX(), coords.getY(), getStatus().toString());
+        return String.format("Sniper|HP:%d/%d|Броня:%d|Боезапас:%d|x:%d y:%d|%s & %s", 
+                            hp, maxHp, armor, numberOfArrows, coords.getX(), coords.getY(), getStatus().toString(), isWaitCountry);
+    }
+
+    @Override
+    public String toString() {
+        return "S";
     }
 }
