@@ -1,7 +1,10 @@
 package HomeWork;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import HomeWork.SearchAndCreate.CreateNewTeam;
+import HomeWork.Unit.Status;
 import HomeWork.Unit.Unit;
 import HomeWork.View.View;
 
@@ -14,13 +17,22 @@ public class Main {
     public static void main(String[] args) {
         allTeam.addAll(goodTeam);
         allTeam.addAll(evilTeam);
+        //allTeam.sort((o1, o2) -> o1.getArmor() - o2.getArmor()); - пример //прикрутить инициативу
         
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 100; i++) {
             View.view();
+            if(isDeadInTeam(evilTeam) || isDeadInTeam(goodTeam)) break;
             for (int j = 0; j < allTeam.size(); j++) {
             allTeam.get(j).step(allTeam);
             }
+            //new Scanner(System.in).nextLine();
         }
-        
+    }
+
+    private static boolean isDeadInTeam(ArrayList<Unit> units){
+        for (Unit unit : units) {
+            if(unit.getStatus() != Status.Dead) return false;
+        }
+        return true;
     }
 }

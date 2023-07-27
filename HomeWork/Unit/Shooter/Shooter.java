@@ -4,20 +4,21 @@ import HomeWork.Unit.Status;
 import HomeWork.Unit.Unit;
 
 public abstract class Shooter extends Unit{
-    public final int maxNumberofArrow = 10;
+    public final int maxNumberofArrow;
     protected int numberOfArrows;
     protected int damage;
-    public boolean isWaitCountry = false;
+    public boolean isWaitCountry = false; //ждет ли шутер союзного бомжа
 
-    public Shooter(String name, int x, int y, int hp, int armor, int numberOfArrows, int damage) {
+    public Shooter(String name, int x, int y, int hp, int armor, int numberOfArrows, int damage, int maxNumberofArrow) {
         super(name, x, y, hp, armor);
         this.numberOfArrows = numberOfArrows;
         this.damage = damage;
+        this.maxNumberofArrow = maxNumberofArrow;
     }
 
     //Метод стрельбы
     protected void shoot(Unit target) {
-        if(target.getStatus() != Status.Dead){
+        if(target.getStatus() != Status.Dead && target != null){
             target.takeDamage(damage);
             numberOfArrows --;
 
@@ -31,8 +32,12 @@ public abstract class Shooter extends Unit{
     }
 
     //Метод пополнения боезапаса
-    public void restock(int arrows) {
-        numberOfArrows += arrows;
+    public int restock(int arrows) {
+        
+        //Написать логику пополнения не трогая ход бомжа
+        
+        
+        return 0; //заглушка
     }
 
     public int getNumOfArr(){

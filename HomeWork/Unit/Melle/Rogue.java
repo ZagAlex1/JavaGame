@@ -8,7 +8,7 @@ public class Rogue extends Melee{
     public final int maxHp = 65;
     private int numberOfAttack = 2;
     public Rogue(String name, int x, int y) {
-        super(name, x, y, 650, 2, 10);
+        super(name, x, y, 65, 2, 10);
     }
 
     //Имеет двойной ход и возможность при атаке снимать 1 броню

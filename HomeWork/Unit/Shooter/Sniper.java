@@ -12,7 +12,7 @@ public class Sniper extends Shooter{
     private final int maxHp = 45;
 
     public Sniper(String name, int x, int y) {
-        super(name, x, y, 45, 3, 15, 10);
+        super(name, x, y, 45, 3, 15, 13, 13);
     }
     
     @Override

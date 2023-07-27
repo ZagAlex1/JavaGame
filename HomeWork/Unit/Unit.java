@@ -35,15 +35,16 @@ public abstract class Unit implements IBaseUnit {
         return hp;
     }
 
-    //Геттер армора. Нигде не учитывается
+    //Геттер армора.
     public int getArmor() {
         return armor;
     }
 
-    //Сеттер армора. В данный момент нигде не используется
+    //Сеттер армора.
     public void setArmor(int armor) {
         this.armor += armor;
     }
+
     //Метод передвижения
     protected void move(Unit target){
         getCoords().newPosition(target);
@@ -63,10 +64,11 @@ public abstract class Unit implements IBaseUnit {
 
     //Метод на получение урона
     public void takeDamage(int damage) { 
-        if(isAlive()){
+        if(hp > 0){
             hp = hp - (damage - armor);
+            isAlive();
         }
-        else return;
+        else status = Status.Dead;
     }
 
     //Метод на восстановление здоровья

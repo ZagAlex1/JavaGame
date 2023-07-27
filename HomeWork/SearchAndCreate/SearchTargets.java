@@ -24,7 +24,6 @@ public class SearchTargets {
             if(target instanceof Shooter && target.getStatus() != Status.Dead && target.team == unit.team){
                 var tmp = (Shooter)target;
                 if(!tmp.isWaitCountry){
-                    tmp.isWaitCountry = true;
                     return tmp;
                 }
                 continue;

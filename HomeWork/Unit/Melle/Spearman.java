@@ -18,6 +18,8 @@ public class Spearman extends Melee{
 
         Unit target = getCoords().findNearestEnemy(targets, this);
         attack(target);
+
+        return;
     }
 
     @Override

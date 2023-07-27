@@ -24,6 +24,7 @@ public class Coordinats {
         return y;
     }
 
+    //Рассчет дистанции до цели
     public double findDistance(Unit target){
         return Math.sqrt((Math.pow(x - target.getCoords().x, 2) + Math.pow(y - target.getCoords().y, 2)));
     }

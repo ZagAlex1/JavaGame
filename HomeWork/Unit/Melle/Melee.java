@@ -12,6 +12,8 @@ public abstract class Melee extends Unit {
     }
 
     public boolean attack(Unit target) {
+        if(target == null) return false;
+
         if(getCoords().findDistance(target) <= 1){
             target.takeDamage(damage);
             setStatus(Status.Attack);

@@ -39,27 +39,27 @@ public class CreateNewTeam {
                         units.add(unit);
                         break;
                     case 2:
-                        unit = new Spearman("Van",i + 1, y);
+                        unit = new Spearman("San",i + 1, y);
                         unit.team = team;
                         units.add(unit);
                         break;
                     case 3:
-                        unit = new Arbolist("Pol", i + 1, y);
+                        unit = new Arbolist("Aid", i + 1, y);
                         unit.team = team;
                         units.add(unit);
                         break;
                     case 4:
-                        unit = new Sniper("Hitch",i + 1, y);
+                        unit = new Sniper("Snake",i + 1, y);
                         unit.team = team;
                         units.add(unit);
                         break;
                     case 5:
-                        unit = new Mage("Liman", i + 1, y, "Metla");
+                        unit = new Mage("Gandalf", i + 1, y, "Metla");
                         unit.team = team;
                         units.add(unit);
                         break;
                     case 6:
-                        unit = new Monk("ShiMun", i + 1, y, "Krest");
+                        unit = new Monk("Mishu", i + 1, y, "Krest");
                         unit.team = team;
                         units.add(unit);
                         break;
