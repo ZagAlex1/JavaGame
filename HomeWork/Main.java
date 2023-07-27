@@ -17,13 +17,15 @@ public class Main {
     public static void main(String[] args) {
         allTeam.addAll(goodTeam);
         allTeam.addAll(evilTeam);
-        //allTeam.sort((o1, o2) -> o1.getArmor() - o2.getArmor()); - пример //прикрутить инициативу
+        allTeam.sort((o1, o2) -> o2.getInit() - o1.getInit()); //сортировка по инициативе
         
-        for (int i = 0; i < 100; i++) {
+        while (true) {
             View.view();
             if(isDeadInTeam(evilTeam) || isDeadInTeam(goodTeam)) break;
+            
+            new Scanner(System.in).nextLine();
             for (int j = 0; j < allTeam.size(); j++) {
-            allTeam.get(j).step(allTeam);
+                allTeam.get(j).step(allTeam);
             }
             //new Scanner(System.in).nextLine();
         }

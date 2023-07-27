@@ -5,11 +5,9 @@ import java.util.ArrayList;
 import HomeWork.Unit.Unit;
 
 public class Spearman extends Melee{
-    
-    private final int maxHp = 90;
 
     public Spearman(String name, int x, int y) {
-        super(name, x, y, 90, 5, 10);
+        super(name, x, y, 85, 5, 10, 55, 85);
     }
 
     @Override
@@ -25,7 +23,7 @@ public class Spearman extends Melee{
     @Override
     public String getInfo() {
         return String.format("Spearman|HP:%d/%d|Броня:%d|x:%d y:%d|%s", 
-                            hp, maxHp, armor, coords.getX(), coords.getY(), getStatus());
+                            hp, getMaxHp(), armor, coords.getX(), coords.getY(), getStatus());
     }
 
     @Override

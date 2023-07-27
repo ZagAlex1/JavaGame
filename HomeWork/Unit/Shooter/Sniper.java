@@ -9,10 +9,8 @@ import HomeWork.Main;
 
 public class Sniper extends Shooter{
 
-    private final int maxHp = 45;
-
     public Sniper(String name, int x, int y) {
-        super(name, x, y, 45, 3, 15, 13, 13);
+        super(name, x, y, 45, 2, 15, 15, 13, 80, 45);
     }
     
     @Override
@@ -44,7 +42,7 @@ public class Sniper extends Shooter{
     @Override
     public String getInfo() {
         return String.format("Sniper|HP:%d/%d|Броня:%d|Боезапас:%d|x:%d y:%d|%s & %s", 
-                            hp, maxHp, armor, numberOfArrows, coords.getX(), coords.getY(), getStatus().toString(), isWaitCountry);
+                            hp, getMaxHp(), armor, numberOfArrows, coords.getX(), coords.getY(), getStatus().toString(), isWaitCountry);
     }
 
     @Override

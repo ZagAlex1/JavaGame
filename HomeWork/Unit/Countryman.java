@@ -7,13 +7,11 @@ import HomeWork.SearchAndCreate.SearchTargets;
 import HomeWork.Unit.Shooter.Shooter;
 
 public class Countryman extends Unit{
-
     private int numberOfArrows = 20;
-    public final int maxHP = 40;
     Shooter shooter;
 
     public Countryman(String name, int x, int y) {
-        super(name, x, y, 40, 0);
+        super(name, x, y, 40, 1, 5, 40);
     }
     @Override
     public void step(ArrayList<Unit> targets) {

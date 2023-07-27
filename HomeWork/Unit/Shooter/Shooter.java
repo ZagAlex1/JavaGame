@@ -9,8 +9,8 @@ public abstract class Shooter extends Unit{
     protected int damage;
     public boolean isWaitCountry = false; //ждет ли шутер союзного бомжа
 
-    public Shooter(String name, int x, int y, int hp, int armor, int numberOfArrows, int damage, int maxNumberofArrow) {
-        super(name, x, y, hp, armor);
+    public Shooter(String name, int x, int y, int hp, int armor, int numberOfArrows, int damage, int maxNumberofArrow, int initiative, int maxHP) {
+        super(name, x, y, hp, armor, initiative, maxHP);
         this.numberOfArrows = numberOfArrows;
         this.damage = damage;
         this.maxNumberofArrow = maxNumberofArrow;

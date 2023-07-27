@@ -31,4 +31,14 @@ public class SearchTargets {
         }
         return null;
     }
+
+    //Поиск союзного юнита с неполным здоровьем
+    public static Unit findFrendlyUnitWithNotFullHp(ArrayList<Unit> allUnits, Unit unit){
+        for (Unit target : allUnits) {
+            if(target.getStatus() != Status.Dead && target.team == unit.team && target.getHp() < target.getMaxHp()){
+                return target;
+            }
+        }
+        return null;
+    }
 }

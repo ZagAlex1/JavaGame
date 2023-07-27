@@ -7,5 +7,7 @@ public enum Status {
     Attack,
     Busy,
     Dead,
+    ResHP,
+    VoidMana,
     Empty;
 }

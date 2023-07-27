@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import HomeWork.Unit.Unit;
 
 public class Rogue extends Melee{
-    public final int maxHp = 65;
     private int numberOfAttack = 2;
+    
     public Rogue(String name, int x, int y) {
-        super(name, x, y, 65, 2, 10);
+        super(name, x, y, 70, 3, 10, 60, 70);
     }
 
     //Имеет двойной ход и возможность при атаке снимать 1 броню
@@ -26,7 +26,7 @@ public class Rogue extends Melee{
     @Override
     public String getInfo() {
         return String.format("Rogue|HP:%d/%d|Броня:%d|x:%d y:%d|%s", 
-                            hp, maxHp, armor, coords.getX(), coords.getY(), getStatus());
+                            hp, getMaxHp(), armor, coords.getX(), coords.getY(), getStatus());
     }
 
     @Override
