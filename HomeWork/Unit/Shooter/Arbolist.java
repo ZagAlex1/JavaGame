@@ -10,7 +10,7 @@ import HomeWork.Unit.Unit;
 public class Arbolist extends Shooter{
     
     public Arbolist(String name, int x, int y) {
-        super(name, x, y, 60, 3, 12, 10, 15, 75, 60);
+        super(name, x, y, 60, 3, 12, 10, 12, 75, 60);
     }
 
     @Override

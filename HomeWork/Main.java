@@ -21,13 +21,19 @@ public class Main {
         
         while (true) {
             View.view();
-            if(isDeadInTeam(evilTeam) || isDeadInTeam(goodTeam)) break;
+            if(isDeadInTeam(evilTeam)){
+                System.out.println("Победа команды Green!");
+                break;
+            }
+            else if(isDeadInTeam(goodTeam)){
+                System.out.println("Победа команды Blue!");
+                break;
+            }
             
             new Scanner(System.in).nextLine();
             for (int j = 0; j < allTeam.size(); j++) {
                 allTeam.get(j).step(allTeam);
             }
-            //new Scanner(System.in).nextLine();
         }
     }
 

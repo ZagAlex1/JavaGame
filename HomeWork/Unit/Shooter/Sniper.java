@@ -10,7 +10,7 @@ import HomeWork.Main;
 public class Sniper extends Shooter{
 
     public Sniper(String name, int x, int y) {
-        super(name, x, y, 45, 2, 15, 15, 13, 80, 45);
+        super(name, x, y, 45, 2, 10, 15, 10, 80, 45);
     }
     
     @Override

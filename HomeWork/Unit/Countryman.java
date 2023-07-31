@@ -7,7 +7,7 @@ import HomeWork.SearchAndCreate.SearchTargets;
 import HomeWork.Unit.Shooter.Shooter;
 
 public class Countryman extends Unit{
-    private int numberOfArrows = 20;
+    private int numberOfArrows = 40;
     Shooter shooter;
 
     public Countryman(String name, int x, int y) {
@@ -16,18 +16,19 @@ public class Countryman extends Unit{
     @Override
     public void step(ArrayList<Unit> targets) {
         if(!isAlive()){
-            if(shooter != null) shooter.isWaitCountry = false;
+            if(shooter != null) shooter.isWaitCountry = false; //Флаг ожидания класса Shooter-ом союзного крестьянина
             return;
         }
         else if(!isNotEmpty()) return;
 
+        //Если союзного шутера не прикреплено, то вызывается метод поиска
         if(shooter == null){
             shooter = SearchTargets.findNotFullShooter(Main.allTeam, this);
-            if(shooter != null) shooter.isWaitCountry = true;
+            if(shooter != null) shooter.isWaitCountry = true; //флаг шутера, который показывает, что шутер ожидает крестьянина
             else return;
         }
         else if(shooter != null && shooter.getStatus() == Status.Dead){
-            shooter = SearchTargets.findNotFullShooter(Main.allTeam, this);
+            shooter = SearchTargets.findNotFullShooter(Main.allTeam, this); //Поиск другого пустого шутера, если текущего убили
         }
 
         if(shooter != null && shooter.getStatus() == Status.Empty){
@@ -36,6 +37,7 @@ public class Countryman extends Unit{
                 numberOfArrows = shooter.restock(numberOfArrows);
 
                 System.out.printf("Пополнил запас %s на коор: %d %d\n",shooter.getName(), shooter.getCoords().getX(), shooter.getCoords().getY());
+                shooter.isWaitCountry = false;
                 shooter = null;
                 setStatus(Status.Stand);
             }

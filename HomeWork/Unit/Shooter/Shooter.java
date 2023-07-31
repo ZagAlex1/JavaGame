@@ -33,11 +33,17 @@ public abstract class Shooter extends Unit{
 
     //Метод пополнения боезапаса
     public int restock(int arrows) {
-        
-        //Написать логику пополнения не трогая ход бомжа
-        
-        
-        return 0; //заглушка
+        if(numberOfArrows + arrows > maxNumberofArrow){
+            int tmp = maxNumberofArrow - numberOfArrows;
+            numberOfArrows += tmp;
+            setStatus(Status.Stand);
+            return arrows - tmp;
+        }
+        else{
+            numberOfArrows += arrows;
+            setStatus(Status.Stand);
+            return 0;
+        }
     }
 
     public int getNumOfArr(){

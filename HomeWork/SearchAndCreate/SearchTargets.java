@@ -8,7 +8,7 @@ import HomeWork.Unit.Unit;
 import HomeWork.Unit.Shooter.Shooter;
 
 public class SearchTargets {
-    //Поиск союзного, живого и свободного бомжа
+    //Поиск союзного, живого и свободного крестьянина
     public static Countryman findFrendlyCM(ArrayList<Unit> allUnits, Unit unit){
         for (Unit target : allUnits) {
             if(target instanceof Countryman && target.getStatus() == Status.Stand && target.team == unit.team){
@@ -18,12 +18,12 @@ public class SearchTargets {
         return null;
     }
 
-    //Поиск союзного дальняка
+    //Поиск союзного дальняка с пустым запасом
     public static Shooter findNotFullShooter(ArrayList<Unit> allUnits, Unit unit){
         for (Unit target : allUnits) {
             if(target instanceof Shooter && target.getStatus() != Status.Dead && target.team == unit.team){
                 var tmp = (Shooter)target;
-                if(!tmp.isWaitCountry){
+                if(!tmp.isWaitCountry && tmp.isEmptyStock()){
                     return tmp;
                 }
                 continue;
